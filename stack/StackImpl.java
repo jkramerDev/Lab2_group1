@@ -2,11 +2,20 @@ package stack;
 
 public class StackImpl implements Stack {
 
+	private String [] elements;
+	private int top = -1;
+	private int size;
+	
+	
 	@Override
-	public void push(String s) {
-	
-		System.out.println("thing i added to stack: " + s);
-	
+	public void push(String el) {
+		if (isFull()) {
+			System.err.println("full stack");
+		}
+		else {
+			top++;
+			elements[top] = el;
+		}
 	}
 
 	@Override
@@ -23,14 +32,12 @@ public class StackImpl implements Stack {
 
 	@Override
 	public Boolean isFull() {
-		// TODO Auto-generated method stub
-		return null;
+		return top == size - 1;
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return size;
 	}
 
 	@Override
@@ -40,8 +47,10 @@ public class StackImpl implements Stack {
 	}
 
 	@Override
-	public void setCapacity(int size) {
-		// TODO Auto-generated method stub
+	public void setCapacity(int s) {
+		elements = new String[s];
+		size = s;
+		
 		
 	}
 
