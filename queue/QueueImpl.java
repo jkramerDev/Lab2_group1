@@ -2,6 +2,8 @@ package queue;
 
 public class QueueImpl implements Queue {
 
+
+
 	@Override
 	public boolean isFull() {
 		// TODO Auto-generated method stub
@@ -17,9 +19,8 @@ public class QueueImpl implements Queue {
 	@Override
 	public void enQueue(String element) {
 		// TODO Auto-generated method stub
-		
 	}
-
+	
 	@Override
 	public String deQueue() {
 		// TODO Auto-generated method stub
