@@ -5,6 +5,7 @@ public class QueueImpl implements Queue {
 	int LENGTH = 5;
 	String[] arr = new String[LENGTH];
 	int size = 0;
+	int front = 0;
 
 	@Override
 	public boolean isFull() {
@@ -45,21 +46,39 @@ public class QueueImpl implements Queue {
 	}
 
 	@Override
-	public String deQueue() {
-		// TODO Auto-generated method stub
-		return null;
+	public void deQueue() {
+		
+		if(isEmpty()){
+	          System.out.println("Queue is empty. Nothing to dequeue");
+	      } else if (front == size){
+	          front = size = -1;
+	      } else {
+	          front++;
+	      }
 	}
 
 	@Override
 	public void display() {
-		// TODO Auto-generated method stub
 		
+		String display = "[";
+		
+		for (int i = front; i < LENGTH; i++) {
+			display += arr[i];
+			if (i == LENGTH - 1)
+				break;
+			display += ", ";
+		}
+		
+		display += "]";
+		
+		System.out.println("Queue Display: " + display);
 	}
 
 	@Override
 	public String peek() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return arr[front];
+		
 	}
 
 }
