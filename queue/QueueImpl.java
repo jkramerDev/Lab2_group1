@@ -48,15 +48,14 @@ public class QueueImpl implements Queue {
 	
 	@Override
 	public void deQueue() {
-		
-		if(isEmpty()){
-	          System.out.println("Queue is empty. Nothing to dequeue");
-	      } else if (front == size){
-	          front = size = -1;
-	      } else {
-	          front++;
-	      }
-	}
+    	if (isEmpty()) {
+        	System.out.println("Queue is empty. Nothing to dequeue");
+    	} else if (front == size) {
+        	front = size = 0;
+    	} else {
+        	front++;
+    	}
+}
 
 	@Override
 	public void display() {
