@@ -85,20 +85,70 @@ public class StagBusClient {
         // Print the stations
         System.out.println("List of stations after adding:");
         stations.listItems();
-    
 
-		
-		
- 		
-		System.out.println("-----S T A C K  T E S T------");
-
-		//QRunTestMethod...
-	 
 		System.out.println("----Q U E U E  T E S T-------");
 		
-
-		//StackRunTestMethod...
+		Queue riders = new QueueImpl();
+		//create 6 riders
+		riders.enQueue("rider1");
+		riders.enQueue("rider2");
+		riders.enQueue("rider3");
+		riders.enQueue("rider4");
+		riders.enQueue("rider5");
+		riders.enQueue("rider6");
 		
+		//peek at queue, print result
+		System.out.println("Queue Head: " + riders.peek());
+		
+		//remove head and print all
+		riders.deQueue();
+		riders.display();
+		
+		//add 2 more riders
+		riders.enQueue("rider7");
+		riders.enQueue("rider8");
+		
+		//peek and print
+		System.out.println("Queue Head: " + riders.peek());
+		
+		//remove head and print all
+		riders.deQueue();
+		riders.display();
+		
+		//iterate and print all
+		riders.display();
+		
+		System.out.println("-----S T A C K  T E S T------");
+		
+		Stack onBus = new StackImpl();
+		
+		//push 6 people to stack and print all
+		onBus.push("person1");
+		onBus.push("person2");
+		onBus.push("person3");
+		onBus.push("person4");
+		onBus.push("person5");
+		onBus.push("person6");
+		
+		onBus.display();
+		
+		//peek and print
+		System.out.println("Top of Stack: " + onBus.peek());
+		
+		//push 2 more people
+		onBus.push("person7");
+		onBus.push("person8");
+		
+		//peek and print
+		System.out.println("Top of Stack: " + onBus.peek());
+		
+		//remove all people
+		while (!onBus.isEmpty()) {
+			onBus.pop();
+		}
+		
+		//verify all people are off the bus
+		System.out.println("Is the bus empty: " + onBus.isEmpty());
 	 	}
 
 }
