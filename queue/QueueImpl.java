@@ -2,7 +2,7 @@ package queue;
 
 public class QueueImpl implements Queue {
 
-	int LENGTH = 5;
+	int LENGTH = 10;
 	String[] arr = new String[LENGTH];
 	int size = 0;
 	int front = 0;
