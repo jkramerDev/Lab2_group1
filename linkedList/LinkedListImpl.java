@@ -95,20 +95,62 @@ public class LinkedListImpl implements LinkedList {
 
 	@Override
 	public Boolean insertBefore(String newItem, String itemToInsertBefore) {
-		// TODO Auto-generated method stub
-		return null;
+		if (head == null)
+        return false;
+
+    	if (head.data.equals(itemToInsertBefore)) {
+        ListItem newItemNode = new ListItem(newItem);
+        newItemNode.next = head;
+        head = newItemNode;
+        return true;
+    	}
+
+    	ListItem current = head;
+    	while (current.next != null) {
+        	if (current.next.data.equals(itemToInsertBefore)) {
+            ListItem newItemNode = new ListItem(newItem);
+            newItemNode.next = current.next;
+            current.next = newItemNode;
+            	return true;
+        	}
+        	current = current.next;
+    	}
+    	return false;
 	}
 
 	@Override
 	public Boolean insertAfter(String newItem, String itemToInsertAfter) {
-		// TODO Auto-generated method stub
-		return null;
+		ListItem current = head;
+    	while (current != null) {
+        	if (current.data.equals(itemToInsertAfter)) {
+            	ListItem newItemNode = new ListItem(newItem);
+            	newItemNode.next = current.next;
+            	current.next = newItemNode;
+            	return true;
+        	}
+        	current = current.next;
+    	}
+    	return false;
 	}
 
 	@Override
 	public void sort() {
-		// TODO Auto-generated method stub
-		
+		if (head == null || head.next == null)
+        	return;
+
+    	ListItem current = head;
+    	while (current != null) {
+        	ListItem index = current.next;
+        	while (index != null) {
+            	if (current.data.compareTo(index.data) > 0) {
+                	String temp = current.data;
+                	current.data = index.data;
+                	index.data = temp;
+            	}
+            	index = index.next;
+        	}
+        	current = current.next;
+    	}
 	}
 	
 }

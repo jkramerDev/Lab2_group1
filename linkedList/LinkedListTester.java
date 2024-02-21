@@ -64,12 +64,57 @@ public class LinkedListTester {
 	}
 	public static void TEST_INSERTBEFORE() {
 		System.out.println("--TESTING INSERTBEFORE--");
+		list.add("one");
+		list.add("two");
+		list.add("four");
+		list.add("five");
+	
+		boolean inserted = list.insertBefore("three", "four");
+		if (inserted) {
+			System.out.println("Insertion of 'three' before 'four' successful.");
+		} else {
+			System.out.println("Failed to insert 'three' before 'four'.");
+		}
+	
+		list.listItems();
+		System.out.println("");
 	}
 	public static void TEST_INSERTAFTER() {
 		System.out.println("--TESTING INSERTAFTER--");
+		list.add("one");
+		list.add("two");
+		list.add("three");
+		list.add("five");
+	
+		boolean inserted = list.insertAfter("four", "three");
+		if (inserted) {
+			System.out.println("Insertion of 'four' after 'three' successful.");
+		} else {
+			System.out.println("Failed to insert 'four' after 'three'.");
+		}
+	
+		list.listItems();
+		System.out.println("");
 	}
 	public static void TEST_ITEMCOUNT() {
 		System.out.println("--TESTING ITEMCOUNT--");
 		System.out.println("List contains (" + list.itemCount() + ") Items");
+	}
+	public static void TEST_SORT() {
+		System.out.println("--TESTING SORT--");
+		list.add("five");
+		list.add("two");
+		list.add("four");
+		list.add("one");
+		list.add("three");
+	
+		System.out.println("Before sorting:");
+		list.listItems();
+	
+		list.sort();
+	
+		System.out.println("After sorting:");
+		list.listItems();
+		System.out.println("");
 	}
 }
